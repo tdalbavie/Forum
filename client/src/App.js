@@ -17,6 +17,11 @@ import CreateArticlePage from './pages/CreateArticlePage';
 import Avocado101Page from './pages/Avocado101Page';
 import ContactPage from './pages/ContactPage';
 
+import TypesOfAvocadoPage from './pages/TypesOfAvocadoPage';
+import HowToGrowFromSeedPage from './pages/HowToGrowFromSeedPage';
+import AvocadoFactsPage from './pages/AvocadoFactsPage';
+
+import HistoryAvocadoPage from './pages/HistoryAvocadoPage';
 
 function App() {
   return (
@@ -31,14 +36,25 @@ function App() {
             <Route path="/Categories" element={<CategoriesPage />} /> 
             <Route path="/Categories/:categoryId/Threads" element={<ThreadsPage />} /> 
             <Route path="/Threads/:threadId/Posts" element={<PostsPage />} /> 
+
             <Route path="/Recipes" element={<RecipesPage />} />
             <Route path="/CreateRecipe" element={<CreateRecipePage />} />
 
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+
             <Route path="/articles" element={<ArticlesPage />} />
             <Route path="/create-article" element={<CreateArticlePage />} />
+            
             <Route path="/avocado-101" element={<Avocado101Page />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/types-of-avocado" element={<TypesOfAvocadoPage />} />
+            <Route path="/history-avocado" element={<HistoryAvocadoPage />} />
+
+            <Route path="/how-to-grow-from-seed" element={<HowToGrowFromSeedPage />} />
+            <Route path="/avocado-facts" element={<AvocadoFactsPage />} />
+
+
+
           </Routes>
         </div>
       </Router>

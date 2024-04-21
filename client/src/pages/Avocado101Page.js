@@ -9,7 +9,7 @@ const Avocado101Page = () => {
       <h1>Avocado 101</h1>
       <ul>
         <li><Link to="/types-of-avocado">Types of Avocado</Link></li>
-        <li><Link to="/history-of-avocado">History of Avocado</Link></li>
+        <li><Link to="/history-avocado">History of Avocado</Link></li>
         <li><Link to="/how-to-grow-from-seed">How to Grow From Seed</Link></li>
         <li><Link to="/avocado-facts">Avocado Facts</Link></li>
       </ul>
