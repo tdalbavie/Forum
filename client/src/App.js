@@ -9,6 +9,8 @@ import LoginPage from './pages/LoginPage';
 import CategoriesPage from './pages/CategoriesPage'; // Import CategoriesPage
 import ThreadsPage from './pages/ThreadsPage'; // Import ThreadsPage
 import PostsPage from './pages/PostsPage'; // Import PostsPage
+import RecipesPage from './pages/RecipesPage'; // Import RecipesPage
+import CreateRecipePage from './pages/CreateRecipePage'; // Import CreateRecipePage
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
             <Route path="/Categories" element={<CategoriesPage />} /> 
             <Route path="/Categories/:categoryId/Threads" element={<ThreadsPage />} /> 
             <Route path="/Threads/:threadId/Posts" element={<PostsPage />} /> 
+            <Route path="/Recipes" element={<RecipesPage />} />
+            <Route path="/CreateRecipe" element={<CreateRecipePage />} />
           </Routes>
         </div>
       </Router>

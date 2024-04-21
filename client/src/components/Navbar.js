@@ -15,6 +15,8 @@ function Navbar() {
           <li style={{ marginTop: '10px' }}><Link to="/Signup" onClick={toggleDropdown}>Sign Up</Link></li>
           <li style={{ marginTop: '10px' }}><Link to="/Login" onClick={toggleDropdown}>Login</Link></li>
           <li style={{ marginTop: '10px' }}><Link to="/Categories" onClick={toggleDropdown}>Forum</Link></li>
+          <li style={{ marginTop: '10px' }}><Link to="/Recipes" onClick={toggleDropdown}>Recipes</Link></li>
+          <li style={{ marginTop: '10px' }}><Link to="/CreateRecipe" onClick={toggleDropdown}>Create Recipe</Link></li>
         </ul>
       )}
     </nav>
