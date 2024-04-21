@@ -11,6 +11,12 @@ import ThreadsPage from './pages/ThreadsPage'; // Import ThreadsPage
 import PostsPage from './pages/PostsPage'; // Import PostsPage
 import RecipesPage from './pages/RecipesPage'; // Import RecipesPage
 import CreateRecipePage from './pages/CreateRecipePage'; // Import CreateRecipePage
+import AboutPage from './pages/AboutPage';
+import ArticlesPage from './pages/ArticlesPage';
+import CreateArticlePage from './pages/CreateArticlePage';
+import Avocado101Page from './pages/Avocado101Page';
+import ContactPage from './pages/ContactPage';
+
 
 function App() {
   return (
@@ -27,6 +33,12 @@ function App() {
             <Route path="/Threads/:threadId/Posts" element={<PostsPage />} /> 
             <Route path="/Recipes" element={<RecipesPage />} />
             <Route path="/CreateRecipe" element={<CreateRecipePage />} />
+
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/articles" element={<ArticlesPage />} />
+            <Route path="/create-article" element={<CreateArticlePage />} />
+            <Route path="/avocado-101" element={<Avocado101Page />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </div>
       </Router>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 //import '../generalCSS.css'; // Link to the CSS file
-
 //import './Avocado101Page.css'; // Link to the CSS file
 
 const Avocado101Page = () => {
