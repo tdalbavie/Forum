@@ -13,7 +13,7 @@ function HomePage() {
       <div className="home-container">
         <div className="home-title">
           <h1>Welcome To All About Avocados!</h1>
-          <img src={require('../images/wavingAvocado.jpeg')} alt="Waving Avocado" className="home-avocado-image" />
+          <img src={require('../images/wavingAvocado.png')} alt="Waving Avocado" className="home-avocado-image" />
             <div className="home-welcome">
             {user ? (
               <>
