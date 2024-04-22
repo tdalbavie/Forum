@@ -8,6 +8,8 @@ const Post = require('./modules/Post.js');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 
+//Wyatt Recipe Addition:
+const Recipe = require('./modules/Recipe'); // Adjust the path as necessary
 
 const app = express();
 const router = express.Router();
@@ -264,5 +266,45 @@ router.get('/threads/:threadId/posts', async (req, res) => {
   } catch (error) {
     console.error("Error fetching posts:", error);
     res.status(500).send("Error fetching posts");
+  }
+});
+
+
+//RECIPE:
+//Enpoint to create recipe
+router.post('/recipes', async (req, res) => {
+  try {
+    let recipe = new Recipe(req.body);
+    recipe = await recipe.save();
+    res.status(201).json(recipe);
+  } catch (error) {
+    console.error("Error creating recipe:", error);
+    res.status(500).send("Error creating recipe");
+  }
+});
+
+// Endpoint to get all recipes
+router.get('/recipes', async (req, res) => {
+  try {
+    const recipes = await Recipe.find().sort({ createdAt: -1 }); // Sort by newest first
+    res.json(recipes);
+  } catch (error) {
+    console.error("Error fetching recipes:", error);
+    res.status(500).send("Error fetching recipes");
+  }
+});
+
+// Endpoint to get a single recipe by ID
+router.get('/recipes/:recipeId', async (req, res) => {
+  try {
+    const recipe = await Recipe.findById(req.params.recipeId);
+    if (recipe) {
+      res.json(recipe);
+    } else {
+      res.status(404).send('Recipe not found');
+    }
+  } catch (error) {
+    console.error("Error fetching recipe:", error);
+    res.status(500).send("Error fetching recipe");
   }
 });

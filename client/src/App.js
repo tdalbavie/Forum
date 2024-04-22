@@ -11,6 +11,8 @@ import ThreadsPage from './pages/ThreadsPage'; // Import ThreadsPage
 import PostsPage from './pages/PostsPage'; // Import PostsPage
 import RecipesPage from './pages/RecipesPage'; // Import RecipesPage
 import CreateRecipePage from './pages/CreateRecipePage'; // Import CreateRecipePage
+import RecipeDetailPage from './pages/RecipeDetailPage';
+
 import AboutPage from './pages/AboutPage';
 import ArticlesPage from './pages/ArticlesPage';
 import CreateArticlePage from './pages/CreateArticlePage';
@@ -39,6 +41,7 @@ function App() {
 
             <Route path="/Recipes" element={<RecipesPage />} />
             <Route path="/CreateRecipe" element={<CreateRecipePage />} />
+            <Route path="/Recipes/:recipeId" element={<RecipeDetailPage />} />
 
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
