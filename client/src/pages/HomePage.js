@@ -2,6 +2,7 @@ import React from 'react';
 import { useUser } from '../context/UserContext';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import './HomePage.css';
 
 function HomePage() {
   const { user, logout } = useUser();
@@ -9,19 +10,27 @@ function HomePage() {
   return (
     <>
       <Navbar />
-      <div style={{ paddingTop: '60px' }}>
-        <h1>Welcome to the Forum</h1>
-        {user ? (
-          <>
-            <p>Welcome, {user.username}! You are logged in as {user.role}.</p>
-            <button onClick={logout}>Logout</button>
-          </>
-        ) : (
-          <p>If you have an account, <Link to="/Login">log in</Link> to see the latest topics. If you don't have an account, <Link to="/Signup">sign up</Link> to join the discussion!</p>
-        )}
+      <div className="home-container">
+        <div className="home-title">
+          <h1>Welcome To All About Avocados!</h1>
+          <img src={require('../images/wavingAvocado.jpeg')} alt="Waving Avocado" className="home-avocado-image" />
+            <div className="home-welcome">
+            {user ? (
+              <>
+                <p>Welcome, {user.username}! You are logged in as {user.role}.</p>
+                <button onClick={logout}>Logout</button>
+              </>
+            ) : (
+              <div className="home-login-signup">
+                <p>If you have an account, <Link to="/Login">log in</Link> to see the latest topics. If you don't have an account, <Link to="/Signup">sign up</Link> to join the discussion!</p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
 }
+
 
 export default HomePage;

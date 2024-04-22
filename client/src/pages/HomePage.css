@@ -1,0 +1,45 @@
+/* HomePage.css */
+
+.home-container {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px; /* Limit the maximum width */
+  }
+  
+  .home-welcome {
+    margin-bottom: 20px;
+  }
+  
+  .home-login-signup {
+    margin-top: 20px;
+  }
+
+  .home-title {
+    position: relative;
+    display: inline-block; /* Makes the container fit the content */
+  }
+  
+  .home-avocado-image {
+    position: absolute;
+    top: 100%; /* Pushes the image right below the title */
+    right: 0; /* Aligns the image to the right side of the title */
+    width: 80px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    transform: translateX(120%); /* Adjust horizontal positioning */
+    transform: translateY(-40%);
+  }
+  
+  @media (min-width: 768px) {
+    .home-avocado-image {
+      width: 120px; /* Larger image for tablet screens and larger */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    /* Styles for desktop screens and larger go here */
+  }
+  
