@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../context/UserContext';
+import { useParams } from 'react-router-dom';
 
 const PostsPage = () => {
   const [posts, setPosts] = useState([]);
