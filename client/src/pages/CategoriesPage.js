@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useUser } from '../context/UserContext';
 import { Link } from 'react-router-dom';
-
+import Navbar from '../components/Navbar';
 const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
   const { user } = useUser();
@@ -61,30 +61,35 @@ const CategoriesPage = () => {
   };
 
   return (
-    <div>
-      <h1>Forum Categories</h1>
-      <ul>
-        {categories.map(category => (
-          <li key={category._id}>
-            <Link to={`/Categories/${category._id}/Threads`}>
-                <strong>{category.title}</strong> - {category.description}
-            </Link>
-            {user && user.role === 'admin' && (
-              <>
-                <button onClick={() => handleDeleteCategory(category._id)}>
-                  Delete
-                </button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
-      {user && user.role === 'admin' && (
-        <button onClick={handleCreateNewCategory}>
-          Create New Category
-        </button>
-      )}
+    <>
+    <Navbar />
+    <div style={{ paddingTop: '60px' }}>
+      <div>
+        <h1>Forum Categories</h1>
+        <ul>
+          {categories.map(category => (
+            <li key={category._id}>
+              <Link to={`/Categories/${category._id}/Threads`}>
+                  <strong>{category.title}</strong> - {category.description}
+              </Link>
+              {user && user.role === 'admin' && (
+                <>
+                  <button onClick={() => handleDeleteCategory(category._id)}>
+                    Delete
+                  </button>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+        {user && user.role === 'admin' && (
+          <button onClick={handleCreateNewCategory}>
+            Create New Category
+          </button>
+        )}
+      </div>
     </div>
+    </>
   );
 };
 

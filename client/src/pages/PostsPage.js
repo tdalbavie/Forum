@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../context/UserContext';
 import { useParams } from 'react-router-dom';
-
+import Navbar from '../components/Navbar';
 const PostsPage = () => {
   const [posts, setPosts] = useState([]);
   const [newPostContent, setNewPostContent] = useState('');
@@ -73,30 +73,35 @@ const PostsPage = () => {
   };
 
   return (
-    <div>
-      <h2>Posts</h2>
-      {user && (
-        <div>
-          <textarea
-            value={newPostContent}
-            onChange={(e) => setNewPostContent(e.target.value)}
-            placeholder="Write your post here..."
-          />
-          <button onClick={handleCreatePost}>Post</button>
-        </div>
-      )}
-      {posts.map(post => (
-        <div key={post._id}>
-          <strong>{post.username}:</strong> {post.deleted ? "This post has been deleted." : post.content}
-          {user && (user.role === 'admin' || user.username === post.username) && !post.deleted && (
-            <>
-              <button onClick={() => handleEdit(post._id)}>Edit</button>
-              <button onClick={() => handleDelete(post._id)}>Delete</button>
-            </>
-          )}
-        </div>
-      ))}
+    <>
+    <Navbar />
+    <div style={{ paddingTop: '60px' }}>
+      <div>
+        <h2>Posts</h2>
+        {user && (
+          <div>
+            <textarea
+              value={newPostContent}
+              onChange={(e) => setNewPostContent(e.target.value)}
+              placeholder="Write your post here..."
+            />
+            <button onClick={handleCreatePost}>Post</button>
+          </div>
+        )}
+        {posts.map(post => (
+          <div key={post._id}>
+            <strong>{post.username}:</strong> {post.deleted ? "This post has been deleted." : post.content}
+            {user && (user.role === 'admin' || user.username === post.username) && !post.deleted && (
+              <>
+                <button onClick={() => handleEdit(post._id)}>Edit</button>
+                <button onClick={() => handleDelete(post._id)}>Delete</button>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
+    </>
   );
 };
 

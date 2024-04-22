@@ -1,10 +1,13 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
 //import '../generalCSS.css'; // Link to the CSS file
 //import './AboutPage.css'; // Link to the CSS file
 
 const AboutPage = () => {
   return (
-    <div className="about-container">
+    <>
+    <Navbar />
+    <div className="about-container" style={{ paddingTop: '60px' }}>
       <img src="path_to_image.jpg" alt="About Us" className="about-image" />
       <div className="about-text">
         <h1>Mission Statement</h1>
@@ -13,6 +16,7 @@ const AboutPage = () => {
         <p>Bio about the organization or individual.</p>
       </div>
     </div>
+    </>
   );
 };
 

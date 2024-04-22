@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
-
+import Navbar from '../components/Navbar';
 const ThreadsPage = () => {
   const [threads, setThreads] = useState([]);
   const { categoryId } = useParams();
@@ -65,23 +65,28 @@ const ThreadsPage = () => {
   };
 
   return (
-    <div>
-      <h1>Threads</h1>
-      {user && <button onClick={handleCreateThread}>Create New Thread</button>}
-      <ul>
-        {threads.map(thread => (
-          <li key={thread._id}>
-            {/* Navigate to the thread's PostsPage on click */}
-            <a href="#" onClick={() => navigate(`/Threads/${thread._id}/Posts`)}>
-              {thread.title}
-            </a>
-            {user && user.role === 'admin' && (
-              <button onClick={() => handleDeleteThread(thread._id)}>Delete</button>
-            )}
-          </li>
-        ))}
-      </ul>
+    <>
+    <Navbar />
+    <div style={{ paddingTop: '60px' }}>
+      <div>
+        <h1>Threads</h1>
+        {user && <button onClick={handleCreateThread}>Create New Thread</button>}
+        <ul>
+          {threads.map(thread => (
+            <li key={thread._id}>
+              {/* Navigate to the thread's PostsPage on click */}
+              <a href="#" onClick={() => navigate(`/Threads/${thread._id}/Posts`)}>
+                {thread.title}
+              </a>
+              {user && user.role === 'admin' && (
+                <button onClick={() => handleDeleteThread(thread._id)}>Delete</button>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
+    </>
   );
 };
 

@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 //import '../generalCSS.css'; // Link to the CSS file
 //import './Avocado101Page.css'; // Link to the CSS file
 
 const Avocado101Page = () => {
   return (
+    <>
+    <Navbar />
+    <div style={{ paddingTop: '60px' }}>
     <div className="avocado-links">
       <h1>Avocado 101</h1>
       <ul>
@@ -14,6 +18,8 @@ const Avocado101Page = () => {
         <li><Link to="/avocado-facts">Avocado Facts</Link></li>
       </ul>
     </div>
+    </div>
+    </>
   );
 };
 

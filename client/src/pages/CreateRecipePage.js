@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from '../components/Navbar';
 
 const CreateRecipePage = () => {
   const [formData, setFormData] = useState({
@@ -34,6 +35,9 @@ const CreateRecipePage = () => {
   };
 
   return (
+    <>
+    <Navbar />
+    <div style={{ paddingTop: '60px' }}>
     <div>
       <h2>Create Recipe</h2>
       <form onSubmit={handleSubmit}>
@@ -43,6 +47,8 @@ const CreateRecipePage = () => {
         <button type="submit">Submit</button>
       </form>
     </div>
+    </div>
+    </>
   );
 };
 

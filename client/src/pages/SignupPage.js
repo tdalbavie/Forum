@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
-
+import Navbar from '../components/Navbar';
 function SignupPage() {
     const { setUser } = useUser();
     const navigate = useNavigate();
@@ -42,16 +42,21 @@ function SignupPage() {
     };
 
     return (
-        <div>
-            <h2>Signup</h2>
-            <form onSubmit={handleSubmit}>
-                <input name="firstName" type="text" placeholder="First Name" onChange={handleChange} required />
-                <input name="lastName" type="text" placeholder="Last Name" onChange={handleChange} required />
-                <input name="username" type="text" placeholder="Username" onChange={handleChange} required />
-                <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-                <button type="submit">Signup</button>
-            </form>
+        <>
+        <Navbar />
+        <div style={{ paddingTop: '60px' }}>
+            <div>
+                <h2>Signup</h2>
+                <form onSubmit={handleSubmit}>
+                    <input name="firstName" type="text" placeholder="First Name" onChange={handleChange} required />
+                    <input name="lastName" type="text" placeholder="Last Name" onChange={handleChange} required />
+                    <input name="username" type="text" placeholder="Username" onChange={handleChange} required />
+                    <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+                    <button type="submit">Signup</button>
+                </form>
+            </div>
         </div>
+        </>
     );
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
-
+import Navbar from '../components/Navbar';
 function LoginPage() {
     const { setUser } = useUser();
     const navigate = useNavigate();
@@ -40,14 +40,19 @@ function LoginPage() {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input name="username" type="text" placeholder="Username" onChange={handleChange} required />
-                <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-                <button type="submit">Login</button>
-            </form>
+        <>
+        <Navbar />
+        <div style={{ paddingTop: '60px' }}>
+            <div>
+                <h2>Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <input name="username" type="text" placeholder="Username" onChange={handleChange} required />
+                    <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </div>
+        </>
     );
 }
 

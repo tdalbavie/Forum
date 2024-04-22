@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from '../components/Navbar';
 //import '../generalCSS.css'; // Link to the CSS file
 //import './CreateArticlePage.css'; // Link to the CSS file
 
@@ -19,14 +20,19 @@ const CreateArticlePage = () => {
   };
 
   return (
-    <div>
-      <h1>Create an Article</h1>
-      <form onSubmit={handleSubmit}>
-        <input name="title" type="text" placeholder="Title" onChange={handleChange} required />
-        <textarea name="content" placeholder="Content" onChange={handleChange} required />
-        <button type="submit">Submit Article</button>
-      </form>
+    <>
+    <Navbar />
+    <div style={{ paddingTop: '60px' }}>
+      <div>
+        <h1>Create an Article</h1>
+        <form onSubmit={handleSubmit}>
+          <input name="title" type="text" placeholder="Title" onChange={handleChange} required />
+          <textarea name="content" placeholder="Content" onChange={handleChange} required />
+          <button type="submit">Submit Article</button>
+        </form>
+      </div>
     </div>
+    </>
   );
 };
 
