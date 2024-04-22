@@ -1,13 +1,14 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import './HistoryAvocadoPage.css';
 
 const HistoryAvocadoPage = () => {
   return (
     <>
     <Navbar />
-    <div style={{ paddingTop: '60px' }}>
-    <div>
-      <h1>History of Avocado</h1>
+    <div className="history-container">
+      <h1 className="history-header">History of Avocado</h1>
+    <div className="history-text">
       <p>
       In the realm of fruits, few can match the enigmatic allure of the avocado. Revered for its creamy texture and subtle flavor, this humble fruit boasts a history as rich and diverse as its culinary uses. From ancient Mesoamerican civilizations to trendy avocado toast cafes, let's take a journey through time to uncover the fascinating story behind the avocado.
       </p>

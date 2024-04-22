@@ -1,0 +1,27 @@
+/* HistoryAvocadoPage.css */
+
+.history-container {
+    padding: 60px 20px; /* Top padding and horizontal padding */
+    max-width: 800px; /* Maximum width for the content */
+    margin: 0 auto; /* Center the container */
+    line-height: 1.6; /* Line height for better readability */
+    font-family: 'Arial', sans-serif; /* Font family for the content */
+  }
+  
+  .history-header {
+    text-align: center; /* Center the title */
+    margin-bottom: 30px; /* Spacing between the title and content */
+  }
+  
+  .history-text {
+    text-align: justify; /* Justify the text for clean edges */
+    margin-bottom: 20px; /* Spacing between paragraphs */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    .history-container {
+      padding: 60px 10px; /* Less horizontal padding on smaller screens */
+    }
+  }
+  
