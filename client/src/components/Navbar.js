@@ -7,7 +7,7 @@ function Navbar() {
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   return (
-    <nav style={{ position: 'fixed', top: 0, width: '100%', backgroundColor: 'skyblue', padding: '10px', boxSizing: 'border-box' }}>
+    <nav style={{ position: 'fixed', top: 0, width: '100%', backgroundColor: '#A8E674', padding: '10px', boxSizing: 'border-box' }}>
       <button onClick={toggleDropdown} style={{ padding: '10px', fontSize: '16px' }}>Menu</button>
       {isOpen && (
         <ul style={{ listStyleType: 'none', padding: 0 }}>
