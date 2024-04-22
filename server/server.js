@@ -5,6 +5,7 @@ const User = require('./modules/User.js');
 const Category = require('./modules/Category.js');
 const Thread = require('./modules/Thread.js');
 const Post = require('./modules/Post.js');
+const Article = require('./modules/Article.js')
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 
@@ -19,7 +20,7 @@ app.use(router);
 
 
 // Connect to MongoDB Atlas.
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect("mongodb+srv://tristanpeloquin:Trispelo123@cluster0.3zquizo.mongodb.net/aaa")
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch(err => console.error('Could not connect to MongoDB Atlas:', err));
 
@@ -254,8 +255,6 @@ router.patch('/posts/:postId', async (req, res) => {
   }
 });
 
-
-
 // Endpoint to list posts by thread.
 router.get('/threads/:threadId/posts', async (req, res) => {
   try {
@@ -266,3 +265,26 @@ router.get('/threads/:threadId/posts', async (req, res) => {
     res.status(500).send("Error fetching posts");
   }
 });
+
+
+// Endpoint to list available articles
+app.get('/getArticles', async (req, res) => {
+  try {
+      const articleList = await Article.find({}, {title:1, content:1});
+      res.send(articleList)
+  }
+  catch (error) {
+      res.status(500).send(error)
+  }
+})
+
+app.post('/createArticle', async (req, res) => {
+  try {
+      const article = new Article(req.body);
+      await article.save()
+      res.send(article)
+  }
+  catch (error) {
+      res.status(500).send(error)
+  }
+})
