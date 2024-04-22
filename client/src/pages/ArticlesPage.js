@@ -1,26 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-//import '../generalCSS.css'; // Link to the CSS file
-//import './ArticlesPage.css'; // Link to the CSS file
 
 const ArticlesPage = () => {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch('http://localhost:9000/articles');
+        if (response.ok) {
+          const data = await response.json();
+          setArticles(data);
+        } else {
+          console.error('Failed to fetch articles');
+        }
+      } catch (error) {
+        console.error('There was a problem fetching articles:', error);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
   return (
     <>
-    <Navbar />
-    <div style={{ paddingTop: '60px' }}>
-      <div className="articles-container">
-        <div className="featured-article">
-          <h1>Title of Featured Article</h1>
-          <p>Summary of the article...</p>
-        </div>
-        <div className="article-grid">
-          <div className="article">Article 1</div>
-          <div className="article">Article 2</div>
-          <div className="article">Article 3</div>
-          <div className="article">Article 4</div>
-        </div>
+      <Navbar />
+      <div style={{ paddingTop: '60px' }}>
+        <h1>Articles</h1>
+        <ul>
+          {articles.map(article => (
+            <li key={article._id}>
+              <Link to={`/Articles/${article._id}`}>
+                {article.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
     </>
   );
 };

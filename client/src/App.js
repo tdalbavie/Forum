@@ -25,6 +25,8 @@ import AvocadoFactsPage from './pages/AvocadoFactsPage';
 
 import HistoryAvocadoPage from './pages/HistoryAvocadoPage';
 
+import ArticleDetailPage from './pages/ArticleDetailPage';
+
 function App() {
   return (
     <UserProvider>
@@ -48,6 +50,7 @@ function App() {
 
             <Route path="/articles" element={<ArticlesPage />} />
             <Route path="/create-article" element={<CreateArticlePage />} />
+            <Route path="/Articles/:articleId" element={<ArticleDetailPage />} />
             
             <Route path="/avocado-101" element={<Avocado101Page />} />
             <Route path="/types-of-avocado" element={<TypesOfAvocadoPage />} />

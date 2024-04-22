@@ -9,7 +9,11 @@ const bcrypt = require('bcryptjs');
 const cors = require('cors');
 
 //Wyatt Recipe Addition:
-const Recipe = require('./modules/Recipe'); // Adjust the path as necessary
+const Recipe = require('./modules/Recipe'); 
+
+//Wyatt Article Addition:
+const Article = require('./modules/Article');
+
 
 const app = express();
 const router = express.Router();
@@ -306,5 +310,44 @@ router.get('/recipes/:recipeId', async (req, res) => {
   } catch (error) {
     console.error("Error fetching recipe:", error);
     res.status(500).send("Error fetching recipe");
+  }
+});
+
+//Article Endpoint
+// Endpoint to create an article
+router.post('/articles', async (req, res) => {
+  try {
+    let article = new Article(req.body);
+    article = await article.save();
+    res.status(201).json(article);
+  } catch (error) {
+    console.error("Error creating article:", error);
+    res.status(500).send("Error creating article");
+  }
+});
+
+// Endpoint to get all articles
+router.get('/articles', async (req, res) => {
+  try {
+    const articles = await Article.find().sort({ createdAt: -1 });
+    res.json(articles);
+  } catch (error) {
+    console.error("Error fetching articles:", error);
+    res.status(500).send("Error fetching articles");
+  }
+});
+
+// Endpoint to get a single article by ID
+router.get('/articles/:articleId', async (req, res) => {
+  try {
+    const article = await Article.findById(req.params.articleId);
+    if (article) {
+      res.json(article);
+    } else {
+      res.status(404).send('Article not found');
+    }
+  } catch (error) {
+    console.error("Error fetching article:", error);
+    res.status(500).send("Error fetching article");
   }
 });

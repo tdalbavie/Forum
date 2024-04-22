@@ -13,10 +13,27 @@ const CreateArticlePage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Submit the form data to the server
-    alert('Article submitted for review!');
+    try {
+      const response = await fetch('http://localhost:9000/articles', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        alert('Article created successfully!');
+        // Consider redirecting the user to the articles list or the detail page of the new article
+      } else {
+        alert('Failed to create article. Please try again.');
+      }
+    } catch (error) {
+      console.error('Failed to create article:', error);
+      alert('Failed to create article. Please try again.');
+    }
   };
 
   return (
