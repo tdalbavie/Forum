@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useUser } from '../context/UserContext';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+
 const PostsPage = () => {
   const [posts, setPosts] = useState([]);
   const [newPostContent, setNewPostContent] = useState('');

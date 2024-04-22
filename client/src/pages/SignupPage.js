@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import Navbar from '../components/Navbar';
+
 function SignupPage() {
     const { setUser } = useUser();
     const navigate = useNavigate();
