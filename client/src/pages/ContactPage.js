@@ -18,7 +18,7 @@ const ContactPage = () => {
     <div style={{ paddingTop: '60px' }}>
       <div className="contact-form">
         <h1>Contact Us</h1>
-        <p>Customer Service: 123-456-7890</p>
+        <p>Customer Service: (+1)123-456-7890</p>
         <form onSubmit={handleSubmit}>
           <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           <br></br>
