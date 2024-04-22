@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema({
   content: { type: String, required: true },
   threadId: { type: mongoose.Schema.Types.ObjectId, ref: 'Thread', required: true },
   authorId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  username: { type: String, required: true }, 
+  username: { type: String, required: false }, 
   deleted: { type: Boolean, default: false },
 });
 
