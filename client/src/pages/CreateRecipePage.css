@@ -1,0 +1,45 @@
+/* CreateRecipePage.css */
+
+.create-recipe-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px; /* Limits the width of the form for better readability */
+    margin: 60px auto 0; /* Centers the form vertically and adds top margin */
+    margin-top: 120px;
+    background: #f4f4f4; /* Light grey background */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow for depth */
+}
+
+.create-recipe-form {
+    display: flex;
+    flex-direction: column; /* Stacks form elements vertically */
+}
+
+.create-recipe-form input,
+.create-recipe-form textarea {
+    padding: 10px;
+    margin-bottom: 15px; /* Space between form elements */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.create-recipe-form button {
+    padding: 10px;
+    color: white;
+    background-color: #4CAF50; /* A vibrant green */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-recipe-form button:hover {
+    background-color: #45a049;
+}
+
+.create-recipe-form input::placeholder,
+.create-recipe-form textarea::placeholder {
+    font-style: italic;
+    color: #888;
+}
