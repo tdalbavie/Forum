@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'; // Make sure this is correctly pointing to your CSS file
 import { useUser } from '../context/UserContext';
+import axios from 'axios';
 
 function Navbar() {
   const { user } = useUser();

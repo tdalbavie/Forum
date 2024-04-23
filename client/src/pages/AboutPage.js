@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import './AboutPage.css'; // Import the CSS here
-import placeholderImage from '../images/placeholder.jpeg'; // Placeholder image
 import avocadoImage from '../images/wavingAvocado.png'; // Main about image
 // Import individual team member images
 // import wyattImage from '../images/wyattImage.jpeg';
