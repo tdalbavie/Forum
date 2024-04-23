@@ -1,31 +1,32 @@
-require('dotenv').config(); // Load environment variables from .env file
-const express = require('express');
-const mongoose = require('mongoose');
-const User = require('./modules/User.js');
-const Category = require('./modules/Category.js');
-const Thread = require('./modules/Thread.js');
-const Post = require('./modules/Post.js');
-const bcrypt = require('bcryptjs');
-const cors = require('cors');
-
+require("dotenv").config(); // Load environment variables from .env file
+const express = require("express");
+const mongoose = require("mongoose");
+const Product = require("./modules/Product.js");
+const User = require("./modules/User.js");
+const Category = require("./modules/Category.js");
+const Thread = require("./modules/Thread.js");
+const Post = require("./modules/Post.js");
+const bcrypt = require("bcryptjs");
+const multer = require("multer");
+const cors = require("cors");
 
 const app = express();
 const router = express.Router();
 
 // Middleware to parse JSON bodies
 app.use(express.json());
-app.use(cors({origin: 'http://localhost:3000'}));
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(router);
 
-
 // Connect to MongoDB Atlas.
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB Atlas'))
-  .catch(err => console.error('Could not connect to MongoDB Atlas:', err));
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("Connected to MongoDB Atlas"))
+  .catch((err) => console.error("Could not connect to MongoDB Atlas:", err));
 
 // Example route
-app.get('/', (req, res) => {
-  res.send('Welcome to the Forum!');
+app.get("/", (req, res) => {
+  res.send("Welcome to the Forum!");
 });
 
 const PORT = process.env.PORT || 9000;
@@ -34,11 +35,16 @@ app.listen(PORT, () => {
 });
 
 // Signup endpoint.
-router.post('/signup', async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const { username, password, firstName, lastName } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    let user = new User({ username, password: hashedPassword, firstName, lastName });
+    let user = new User({
+      username,
+      password: hashedPassword,
+      firstName,
+      lastName,
+    });
     user = await user.save();
 
     const userResponse = { ...user._doc, password: undefined }; // Remove password from response
@@ -49,20 +55,19 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-
 // Login endpoint.
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
-    if (user && await bcrypt.compare(password, user.password)) {
+    if (user && (await bcrypt.compare(password, user.password))) {
       // Create a response object excluding the password
-      const userResponse = { 
-        _id: user._id, 
-        username: user.username, 
-        firstName: user.firstName, 
+      const userResponse = {
+        _id: user._id,
+        username: user.username,
+        firstName: user.firstName,
         lastName: user.lastName,
-        role: user.role
+        role: user.role,
       };
       res.json(userResponse); // Send the response object
     } else {
@@ -74,11 +79,10 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
 // Endpoint to create a Category (Admin only).
-router.post('/categories', async (req, res) => {
-  if (req.body.userRole !== 'admin') {
-    return res.status(403).send('Only admins can create categories.');
+router.post("/categories", async (req, res) => {
+  if (req.body.userRole !== "admin") {
+    return res.status(403).send("Only admins can create categories.");
   }
 
   try {
@@ -105,9 +109,8 @@ router.post('/categories', async (req, res) => {
   }
 });
 
-
 // Endpoint to delete a category (Admin only).
-router.delete('/categories/:categoryId', async (req, res) => {
+router.delete("/categories/:categoryId", async (req, res) => {
   try {
     await Category.findByIdAndDelete(req.params.categoryId);
     res.send("Category deleted successfully.");
@@ -117,9 +120,8 @@ router.delete('/categories/:categoryId', async (req, res) => {
   }
 });
 
-
 // Endpoint to list all Categories.
-router.get('/categories', async (req, res) => {
+router.get("/categories", async (req, res) => {
   try {
     const categories = await Category.find();
     res.json(categories);
@@ -129,9 +131,8 @@ router.get('/categories', async (req, res) => {
   }
 });
 
-
 // Endpoint to create a thread.
-router.post('/threads', async (req, res) => {
+router.post("/threads", async (req, res) => {
   try {
     const { title, categoryId, authorId } = req.body;
 
@@ -171,10 +172,8 @@ router.post('/threads', async (req, res) => {
   }
 });
 
-
-
 // Endpoint to delete a thread (Admin only).
-router.delete('/threads/:threadId', async (req, res) => {
+router.delete("/threads/:threadId", async (req, res) => {
   try {
     await Thread.findByIdAndDelete(req.params.threadId);
     res.send("Thread deleted successfully.");
@@ -184,10 +183,8 @@ router.delete('/threads/:threadId', async (req, res) => {
   }
 });
 
-
-
 // Endpoint to list threads by category.
-router.get('/categories/:categoryId/threads', async (req, res) => {
+router.get("/categories/:categoryId/threads", async (req, res) => {
   try {
     const threads = await Thread.find({ categoryId: req.params.categoryId });
     res.json(threads);
@@ -197,9 +194,8 @@ router.get('/categories/:categoryId/threads', async (req, res) => {
   }
 });
 
-
 // Endpoint to create a post.
-router.post('/posts', async (req, res) => {
+router.post("/posts", async (req, res) => {
   // Assuming username is included in the request body along with other post details
   const { content, threadId, authorId, username } = req.body;
 
@@ -219,9 +215,8 @@ router.post('/posts', async (req, res) => {
   }
 });
 
-
 // Endpoint to delete posts.
-router.patch('/posts/:postId/delete', async (req, res) => {
+router.patch("/posts/:postId/delete", async (req, res) => {
   try {
     // Soft-delete the post by setting its deleted flag to true
     const updatedPost = await Post.findByIdAndUpdate(
@@ -236,9 +231,8 @@ router.patch('/posts/:postId/delete', async (req, res) => {
   }
 });
 
-
 // Endpoint to edit posts.
-router.patch('/posts/:postId', async (req, res) => {
+router.patch("/posts/:postId", async (req, res) => {
   const { content } = req.body;
 
   try {
@@ -254,15 +248,64 @@ router.patch('/posts/:postId', async (req, res) => {
   }
 });
 
-
-
 // Endpoint to list posts by thread.
-router.get('/threads/:threadId/posts', async (req, res) => {
+router.get("/threads/:threadId/posts", async (req, res) => {
   try {
     const posts = await Post.find({ threadId: req.params.threadId });
     res.json(posts);
   } catch (error) {
     console.error("Error fetching posts:", error);
     res.status(500).send("Error fetching posts");
+  }
+});
+
+// POST route for creating a product
+app.post("/products", async (req, res) => {
+  try {
+    const { productName, inventory, price, category, imageUrl } = req.body;
+    const newProduct = new Product({
+      productName,
+      inventory,
+      price,
+      category,
+      imageUrl,
+    });
+    await newProduct.save();
+    res.status(201).json(newProduct);
+  } catch (error) {
+    console.error("Error saving product:", error);
+    res.status(400).json({ message: "Error saving product", error });
+  }
+});
+
+// GET route to fetch all products
+app.get("/products", async (req, res) => {
+  try {
+    const products = await Product.find({});
+    res.status(200).json(products);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+//delete products
+router.delete("/products/:productId", async (req, res) => {
+  try {
+    const productId = req.params.productId;
+
+    // Find the product by ID and delete it
+    const deletedProduct = await Product.findByIdAndDelete(productId);
+
+    if (!deletedProduct) {
+      return res.status(404).send("Product not found");
+    }
+
+    res
+      .status(200)
+      .json({ message: "Product deleted successfully", deletedProduct });
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    res.status(500).send("Internal Server Error");
   }
 });
