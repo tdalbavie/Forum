@@ -1,18 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// Context to track user loggin.
 import { UserProvider } from './context/UserContext';
-// All pages in the project..
 import HomePage from './pages/HomePage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
-import CategoriesPage from './pages/CategoriesPage'; // Import CategoriesPage
-import ThreadsPage from './pages/ThreadsPage'; // Import ThreadsPage
-import PostsPage from './pages/PostsPage'; // Import PostsPage
-import RecipesPage from './pages/RecipesPage'; // Import RecipesPage
-import CreateRecipePage from './pages/CreateRecipePage'; // Import CreateRecipePage
+import CategoriesPage from './pages/CategoriesPage';
+import ThreadsPage from './pages/ThreadsPage';
+import PostsPage from './pages/PostsPage';
+import RecipesPage from './pages/RecipesPage';
+import CreateRecipePage from './pages/CreateRecipePage';
 import RecipeDetailPage from './pages/RecipeDetailPage';
-
 import AboutPage from './pages/AboutPage';
 import ArticlesPage from './pages/ArticlesPage';
 import CreateArticlePage from './pages/CreateArticlePage';
@@ -24,8 +21,8 @@ import HowToGrowFromSeedPage from './pages/HowToGrowFromSeedPage';
 import AvocadoFactsPage from './pages/AvocadoFactsPage';
 
 import HistoryAvocadoPage from './pages/HistoryAvocadoPage';
-
 import ArticleDetailPage from './pages/ArticleDetailPage';
+import ExperienceCheck from './pages/ExperiencePage';
 
 function App() {
   return (
@@ -58,6 +55,7 @@ function App() {
 
             <Route path="/how-to-grow-from-seed" element={<HowToGrowFromSeedPage />} />
             <Route path="/avocado-facts" element={<AvocadoFactsPage />} />
+            <Route path="/Experience-Check" element={<ExperienceCheck />} />
 
 
 
@@ -69,3 +67,4 @@ function App() {
 }
 
 export default App;
+
