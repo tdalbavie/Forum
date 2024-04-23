@@ -41,6 +41,7 @@ function Navbar() {
         <li><Link to="/Signup" onClick={toggleDropdown}>Sign Up</Link></li>
         <li><Link to="/Login" onClick={toggleDropdown}>Login</Link></li>
         <li><Link to="/Categories" onClick={toggleDropdown}>Forum</Link></li>
+        <li><Link to="/Experience-Check" onClick={toggleDropdown}>Experience Check</Link></li>
         <li><Link to="/Recipes" onClick={toggleDropdown}>Recipes</Link></li>
         <li><Link to="/CreateRecipe" onClick={toggleDropdown}>Create Recipe</Link></li>
         <li><Link to="/articles" onClick={toggleDropdown}>Articles</Link></li>
