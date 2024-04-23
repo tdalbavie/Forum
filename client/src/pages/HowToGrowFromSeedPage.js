@@ -1,15 +1,16 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import './HowToGrowFromSeedPage.css';
 
 const HowToGrowFromSeedPage = () => {
   return (
     <>
     <Navbar />
-    <div style={{ paddingTop: '60px' }}>
+    <div className="grow-container">
       <div>
-        <h1>How to Grow Avocado From Seed</h1>
-        <h2>Materials Needed:</h2>
-        <ul>
+        <h1 className="grow-header">How to Grow Avocado From Seed</h1>
+        <h2 className="grow-text">Materials Needed:</h2>
+        <ul className="grow-list">
           <li>Ripe avocado</li>
           <li>Knife</li>
           <li>Toothpicks</li>

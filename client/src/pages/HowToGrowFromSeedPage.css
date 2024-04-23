@@ -1,0 +1,30 @@
+.grow-container {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .grow-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .grow-text {
+    text-align: justify;
+    text-indent: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .grow-list {
+    margin-left: 20px; /* Indent the list */
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 767px) {
+    .grow-container {
+      padding: 60px 10px;
+    }
+  }
+  
