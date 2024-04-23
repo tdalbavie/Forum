@@ -7,8 +7,17 @@
     background-color: #A8E674; /* Light green background */
     padding: 10px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between hamburger and title */
     z-index: 1000; /* Ensure navbar is above other content */
   }
+
+  .navbar-title {
+    font-size: 20px;
+    color: black; /* Color of the title */
+    margin-left: 10px; /* Space between hamburger and title */
+}
   
   .navbar button {
     padding: 10px;
@@ -22,12 +31,14 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    position: absolute;
-    left: 0; /* Align with the left edge of the navbar */
-    right: 0; /* Stretch to the right edge of the navbar */
+    position: fixed;
+    top: 50px; /* Start the dropdown right below the navbar */
+    left: 0;
+    right: 0;
     background-color: #A8E674;
     display: none; /* Initially hide the dropdown */
-  }
+    text-align: center;
+}
   
   .navbar ul.show-dropdown {
     display: block; /* Shows the dropdown */

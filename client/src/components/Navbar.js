@@ -14,6 +14,7 @@ function Navbar() {
         <span className="hamburger-icon"></span>
         <span className="hamburger-icon"></span>
       </button>
+      <span className="navbar-title">All About Avocados</span>
       <ul className={isOpen ? 'show-dropdown' : ''}>
         <li><Link to="/" onClick={toggleDropdown}>Home</Link></li>
         <li><Link to="/Signup" onClick={toggleDropdown}>Sign Up</Link></li>

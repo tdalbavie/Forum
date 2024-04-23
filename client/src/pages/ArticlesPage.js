@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import './ArticlesPage.css'; 
 
 const ArticlesPage = () => {
   const [articles, setArticles] = useState([]);
@@ -26,9 +27,9 @@ const ArticlesPage = () => {
   return (
     <>
       <Navbar />
-      <div style={{ paddingTop: '60px' }}>
+      <div className="articles-container">
         <h1>Articles</h1>
-        <ul>
+        <ul className="articles-list">
           {articles.map(article => (
             <li key={article._id}>
               <Link to={`/Articles/${article._id}`}>
