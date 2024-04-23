@@ -25,6 +25,9 @@ function Navbar() {
         <li><Link to="/articles" onClick={toggleDropdown}>Articles</Link></li>
         <li><Link to="/create-article" onClick={toggleDropdown}>Create Article</Link></li>
         <li><Link to="/avocado-101" onClick={toggleDropdown}>Avocado 101</Link></li>
+        <li><Link to="/productForm" onClick={toggleDropdown}>Insert Product</Link></li>
+        <li><Link to="/checkout" onClick={toggleDropdown}>Checkout</Link></li>
+        <li><Link to="/pay" onClick={toggleDropdown}>Payment Method</Link></li>
         <li><Link to="/about" onClick={toggleDropdown}>About</Link></li>
         <li><Link to="/contact" onClick={toggleDropdown}>Contact</Link></li>
       </ul>

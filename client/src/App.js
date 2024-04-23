@@ -1,7 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Context to track user loggin.
-import { UserProvider } from './context/UserContext';
+import { UserProvider } from "./context/UserContext";
 // All pages in the project..
 import HomePage from './pages/HomePage';
 import SignupPage from './pages/SignupPage';
@@ -19,11 +19,14 @@ import CreateArticlePage from './pages/CreateArticlePage';
 import Avocado101Page from './pages/Avocado101Page';
 import ContactPage from './pages/ContactPage';
 
-import TypesOfAvocadoPage from './pages/TypesOfAvocadoPage';
-import HowToGrowFromSeedPage from './pages/HowToGrowFromSeedPage';
-import AvocadoFactsPage from './pages/AvocadoFactsPage';
+import TypesOfAvocadoPage from "./pages/TypesOfAvocadoPage";
+import HowToGrowFromSeedPage from "./pages/HowToGrowFromSeedPage";
+import AvocadoFactsPage from "./pages/AvocadoFactsPage";
 
-import HistoryAvocadoPage from './pages/HistoryAvocadoPage';
+import HistoryAvocadoPage from "./pages/HistoryAvocadoPage";
+import ProductForm from "./pages/ProductForm";
+import ShoppingCart from "./pages/ShoppingCart";
+import PaymentMethod from "./pages/PaymentMethod";
 
 import ArticleDetailPage from './pages/ArticleDetailPage';
 
@@ -37,9 +40,12 @@ function App() {
             <Route path="/Home" element={<HomePage />} />
             <Route path="/Signup" element={<SignupPage />} />
             <Route path="/Login" element={<LoginPage />} />
-            <Route path="/Categories" element={<CategoriesPage />} /> 
-            <Route path="/Categories/:categoryId/Threads" element={<ThreadsPage />} /> 
-            <Route path="/Threads/:threadId/Posts" element={<PostsPage />} /> 
+            <Route path="/Categories" element={<CategoriesPage />} />
+            <Route
+              path="/Categories/:categoryId/Threads"
+              element={<ThreadsPage />}
+            />
+            <Route path="/Threads/:threadId/Posts" element={<PostsPage />} />
 
             <Route path="/Recipes" element={<RecipesPage />} />
             <Route path="/CreateRecipe" element={<CreateRecipePage />} />
@@ -56,11 +62,15 @@ function App() {
             <Route path="/types-of-avocado" element={<TypesOfAvocadoPage />} />
             <Route path="/history-avocado" element={<HistoryAvocadoPage />} />
 
-            <Route path="/how-to-grow-from-seed" element={<HowToGrowFromSeedPage />} />
+            <Route
+              path="/how-to-grow-from-seed"
+              element={<HowToGrowFromSeedPage />}
+            />
             <Route path="/avocado-facts" element={<AvocadoFactsPage />} />
 
-
-
+            <Route path="/productForm" element={<ProductForm />} />
+            <Route path="/checkout" element={<ShoppingCart />} />
+            <Route path="/pay" element={<PaymentMethod />} />
           </Routes>
         </div>
       </Router>
