@@ -1,0 +1,38 @@
+/* AvocadoFactsPage.css */
+
+.facts-container {
+    padding-top: 60px; /* Top padding */
+    padding-left: 20px; /* Left padding */
+    padding-right: 20px; /* Right padding */
+    max-width: 800px; /* Limiting the max width for better readability */
+    margin: 0 auto; /* Centering the container */
+    font-family: 'Arial', sans-serif; /* A clean, readable font */
+  }
+  
+  .facts-header {
+    text-align: center; /* Center-align the title */
+    margin-bottom: 30px; /* Space between the title and the content */
+    color: #2a5934; /* A deep green, fitting the avocado theme */
+  }
+  
+  .facts-list {
+    list-style-position: inside; /* Ensures the list numbers are aligned nicely */
+    padding-left: 0; /* Removes default padding */
+    line-height: 1.8; /* Increases line height for readability */
+    font-size: 16px; /* Sets a comfortable reading font size */
+  }
+  
+  .facts-list li {
+    margin-bottom: 20px; /* Adds space between list items */
+    text-indent: -20px; /* Pulls the text slightly to the left to align with the content */
+    padding-left: 20px; /* Adds padding to the left for alignment */
+    border-left: 3px solid #76b382; /* Adds a stylistic border to the left of each item */
+    background-color: #f4f4f4; /* A light background color for better readability */
+  }
+  
+  @media (max-width: 767px) {
+    .facts-container {
+      padding: 40px 10px; /* Smaller padding on mobile */
+    }
+  }
+  

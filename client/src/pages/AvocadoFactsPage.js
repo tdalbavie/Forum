@@ -1,14 +1,14 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import './AvocadoFactsPage.css'; // Link to the CSS file
 
 const AvocadoFactsPage = () => {
   return (
     <>
     <Navbar />
-    <div style={{ paddingTop: '60px' }}>
-    <div>
-      <h1>Avocado Facts</h1>
-      <ol>
+    <div className="facts-container">
+      <h1 className="facts-header">Avocado Facts</h1>
+      <ol className="facts-list">
         <li><strong>Origins:</strong> Avocados are native to Central and South America, with archaeological evidence suggesting they were cultivated as early as 5000 BCE.</li>
         <li><strong>Berry, Not a Vegetable:</strong> Botanically, avocados are classified as berries, belonging to the Lauraceae family along with cinnamon and bay leaves.</li>
         <li><strong>Name Origin:</strong> The word "avocado" comes from the Aztec word "āhuacatl," which means testicle, due to the fruit's shape and supposed aphrodisiac qualities.</li>
@@ -25,7 +25,6 @@ const AvocadoFactsPage = () => {
         <li><strong>Avocado Art:</strong> Avocado skin and pits can be used as natural dyes for textiles and artwork due to their vibrant colors and staining properties.</li>
         <li><strong>Cultural Significance:</strong> Avocados hold cultural significance in many cuisines around the world, from traditional Mexican dishes like tacos and enchiladas to contemporary fusion cuisine.</li>
       </ol>
-    </div>
     </div>
     </>
   );
