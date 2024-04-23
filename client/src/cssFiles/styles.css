@@ -5,6 +5,10 @@
   --title-color: #1e2019;
 }
 
+.image {
+  width: 20px;
+  height: 20px;
+}
 .button.is-primary {
   background-color: var(--main-accent-color);
 }

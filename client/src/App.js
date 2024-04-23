@@ -23,7 +23,8 @@ import AvocadoFactsPage from "./pages/AvocadoFactsPage";
 
 import HistoryAvocadoPage from "./pages/HistoryAvocadoPage";
 import ProductForm from "./pages/ProductForm";
-import ProductList from "./pages/ProductList";
+import ShoppingCart from "./pages/ShoppingCart";
+import PaymentMethod from "./pages/PaymentMethod";
 
 function App() {
   return (
@@ -62,7 +63,8 @@ function App() {
             <Route path="/avocado-facts" element={<AvocadoFactsPage />} />
 
             <Route path="/productForm" element={<ProductForm />} />
-            <Route path="/productList" element={<ProductList />} />
+            <Route path="/checkout" element={<ShoppingCart />} />
+            <Route path="/pay" element={<PaymentMethod />} />
           </Routes>
         </div>
       </Router>

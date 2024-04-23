@@ -87,8 +87,13 @@ function Navbar() {
             </Link>
           </li>
           <li style={{ marginTop: "10px" }}>
-            <Link to="/productList" onClick={toggleDropdown}>
-              View Products
+            <Link to="/checkout" onClick={toggleDropdown}>
+              Checkout
+            </Link>
+          </li>
+          <li style={{ marginTop: "10px" }}>
+            <Link to="/pay" onClick={toggleDropdown}>
+              Paymen tMethod
             </Link>
           </li>
         </ul>
