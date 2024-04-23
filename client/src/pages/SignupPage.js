@@ -37,8 +37,8 @@ function SignupPage() {
                 alert('Failed to create an account. Please try again.');
             }
         } catch (error) {
-            console.error('Failed to create account:', error);
-            alert('Failed to create an account. Please try again later.');
+            console.error('Failed to create account:\n', error);
+            alert('Failed to create an account. Please try again later.\n', error);
         }
     };
 

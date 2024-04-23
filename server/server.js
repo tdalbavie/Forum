@@ -266,3 +266,58 @@ router.get('/threads/:threadId/posts', async (req, res) => {
     res.status(500).send("Error fetching posts");
   }
 });
+
+/*
+
+  User Experience Points Requests
+
+*/
+
+// Endpoint to fetch user experience level.
+router.get('/users/:userId/experience', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    // Assume you have a method to fetch the user's experience level from the database
+    const experiencePoints = await fetchUserExperience(userId);
+    res.json({ experiencePoints });
+  } catch (error) {
+    console.error("Error fetching user experience level:", error);
+    res.status(500).send("Error fetching user experience level");
+  }
+});
+
+// Define the fetchUserExperience function outside the router
+const fetchUserExperience = async (userId) => {
+  try {
+    // Find the user by userId
+    const user = await User.findById(userId);
+    if (!user) {
+      throw new Error('User not found');
+    }
+    // Return the user's experience points
+    return user.experiencePoints;
+  } catch (error) {
+    console.error("Error fetching user experience:", error);
+    throw error;
+  }
+};
+
+app.post('/users/add-experience', async (req, res) => {
+  const { userId, pointsToAdd } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    // Update user's experience points
+    user.experiencePoints += pointsToAdd;
+    await user.save();
+
+    res.status(200).send('Experience points added successfully');
+  } catch (error) {
+    console.error('Error adding experience points:', error);
+    res.status(500).send('Error adding experience points');
+  }
+});
