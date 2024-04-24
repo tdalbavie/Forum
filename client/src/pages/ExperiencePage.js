@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../context/UserContext';
 import Navbar from '../components/Navbar';
+import './ExperiencePage.css';
 
 function ExperiencePage() {
   const { user } = useUser();
@@ -30,10 +31,11 @@ function ExperiencePage() {
   return (
     <>
       <Navbar />
-      <div style={{ paddingTop: '60px' }}>
+      <div className="experience-container">
         <div>
-          <h1>Experience Level</h1>
-          <p>Your current experience level is: {experience}</p>
+          <span className="user-name">{user.username}</span>
+          <h1 className="experience-header">Experience Level</h1>
+          <p className="experience-points">{experience}</p>
         </div>
       </div>
     </>

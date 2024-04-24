@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
+import './RecipesPage.css';
 const RecipesPage = () => {
   const [recipes, setRecipes] = useState([]);
 
@@ -28,19 +28,17 @@ const RecipesPage = () => {
   return (
     <>
       <Navbar />
-      <div style={{ paddingTop: '60px' }}>
-        <div>
-          <h1>Recipes</h1>
-          <ul>
-            {recipes.map(recipe => (
-              <li key={recipe._id}>
-                <Link to={`/Recipes/${recipe._id}`}>
-                  {recipe.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="recipes-container">
+        <h1>Recipes</h1>
+        <ul className="recipes-list">
+          {recipes.map(recipe => (
+            <li key={recipe._id}>
+              <Link to={`/Recipes/${recipe._id}`}>
+                {recipe.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );

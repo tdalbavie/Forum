@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import Navbar from '../components/Navbar';
+import './ThreadPage.css';
 
 const ThreadsPage = () => {
   const [threads, setThreads] = useState([]);
@@ -71,16 +72,15 @@ const ThreadsPage = () => {
     <div style={{ paddingTop: '60px' }}>
       <div>
         <h1>Threads</h1>
-        {user && <button onClick={handleCreateThread}>Create New Thread</button>}
-        <ul>
+        {user && <button onClick={handleCreateThread} className="admin-button">Create New Thread</button>}
+        <ul className="thread-list">
           {threads.map(thread => (
-            <li key={thread._id}>
-              {/* Navigate to the thread's PostsPage on click */}
-              <a href="#" onClick={() => navigate(`/Threads/${thread._id}/Posts`)}>
+            <li key={thread._id} className="thread-item">
+              <a href="#" onClick={() => navigate(`/Threads/${thread._id}/Posts`)} className="thread-link">
                 {thread.title}
               </a>
               {user && user.role === 'admin' && (
-                <button onClick={() => handleDeleteThread(thread._id)}>Delete</button>
+                <button onClick={() => handleDeleteThread(thread._id)} className="admin-button">Delete</button>
               )}
             </li>
           ))}

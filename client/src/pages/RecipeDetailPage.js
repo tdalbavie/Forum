@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import './RecipeDetailPage.css';
 
 const RecipeDetailPage = () => {
   const { recipeId } = useParams();
@@ -33,10 +34,12 @@ const RecipeDetailPage = () => {
   return (
     <>
       <Navbar />
-      <div style={{ paddingTop: '60px' }}>
+      <div className="recipe-container">
         <h1>{recipe.name}</h1>
-        <p>{recipe.ingredients}</p>
-        <p>{recipe.instructions}</p>
+        <p className="ingredients-title">Ingredients</p>
+        <p className="ingredients-content">{recipe.ingredients}</p>
+        <p className="instructions-title">Instructions</p>
+        <p className="instructions-content">{recipe.instructions}</p>
       </div>
     </>
   );

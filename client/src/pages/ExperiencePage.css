@@ -1,0 +1,31 @@
+/* ExperiencePage.css */
+.experience-container {
+    text-align: center;
+    width: 100%;
+    height: 80vh; /* Use vh unit to use full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center content vertically and horizontally */
+    font-family: Arial, sans-serif; /* Consistent font */
+}
+
+.experience-header {
+    text-align: center;
+    font-size: 150%; /* Larger font size for clarity */
+    color: #333;
+}
+
+.experience-points {
+    text-align: center;
+    font-size: 500%; /* Very large font size for emphasis */
+    font-weight: bold;
+    color: #4CAF50; /* A pleasant green for positive feedback */
+}
+
+.user-name {
+    text-align: center;
+    font-size: 300%;
+    color: #555; /* Slightly subdued color */
+    margin-bottom: 20px; /* Space between username and experience points */
+}

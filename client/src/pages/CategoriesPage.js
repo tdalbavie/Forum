@@ -70,8 +70,8 @@ const CategoriesPage = () => {
           {categories.map(category => (
             <li key={category._id} className="category-item">
               <Link to={`/Categories/${category._id}/Threads`} className="category-link">
-                <div className="category-title">{category.title}</div>
-                <div className="category-description">{category.description}</div>
+                <span className="category-title">{category.title}</span>
+                <span className="category-description">{category.description}</span>
               </Link>
               {user && user.role === 'admin' && (
                 <button onClick={() => handleDeleteCategory(category._id)} className="admin-button">
