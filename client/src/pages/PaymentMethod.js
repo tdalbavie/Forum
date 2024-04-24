@@ -1,30 +1,106 @@
 import React, { useState } from "react";
+import { useCart } from "../context/CartContext"; // Import useCart hook
+import Cart from "../components/cart";
 import Navbar from "../components/Navbar";
-import Cart from "../components/cart"; // Assuming the component is named Cart
-import CheckoutForm from "./PaymentMethod";
 
-const ShoppingCart = () => {
-  const [cartItems, setCartItems] = useState([]);
+const CheckoutForm = () => {
+  const { cartItems, updateCartItem } = useCart(); // Access cartItems and updateCartItem from CartContext
 
-  // Function to handle adding items to the cart
-  const addToCart = (product) => {
-    // Implementation of addToCart function
+  const [formData, setFormData] = useState({
+    name: "",
+    address: "",
+    email: "",
+    cardNumber: "",
+    expDate: "",
+    cvv: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
-  // Function to update cart item quantity
-  const updateCartItem = (itemId, change) => {
-    // Implementation of updateCartItem function
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form data submitted:", formData);
+    // Here you would usually send the data to a server or another process
+    alert("Checkout complete!");
   };
 
   return (
-    <div className="shopping-cart">
+    <div>
       <Navbar />
-      <div className="container">
-        <Cart cartItems={cartItems} updateCartItem={updateCartItem} />
-        <CheckoutForm cartItems={cartItems} addToCart={addToCart} />
-      </div>
+      <Cart cartItems={cartItems} updateCartItem={updateCartItem} />
+      <form onSubmit={handleSubmit}>
+        <h2>Checkout Form</h2>
+        <div>
+          <label>Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Address:</label>
+          <input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Credit Card Number:</label>
+          <input
+            type="text"
+            name="cardNumber"
+            value={formData.cardNumber}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Expiration Date:</label>
+          <input
+            type="text"
+            name="expDate"
+            placeholder="MM/YY"
+            value={formData.expDate}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>CVV:</label>
+          <input
+            type="text"
+            name="cvv"
+            value={formData.cvv}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit">Complete Checkout</button>
+      </form>
     </div>
   );
 };
 
-export default ShoppingCart;
+export default CheckoutForm;
