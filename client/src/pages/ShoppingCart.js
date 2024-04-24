@@ -21,12 +21,24 @@ const ShoppingCart = () => {
     }
   };
 
+  // Function to update cart item quantity
+  const updateCartItem = (itemId, change) => {
+    setCartItems((prevCartItems) => {
+      return prevCartItems.map((item) => {
+        if (item.product._id === itemId) {
+          return { ...item, quantity: item.quantity + change };
+        }
+        return item;
+      });
+    });
+  };
+
   return (
     <div className="shopping-cart">
       <Navbar />
       <div className="container">
         <ProductList addToCart={addToCart} />
-        <Cart cartItems={cartItems} />
+        <Cart cartItems={cartItems} updateCartItem={updateCartItem} />
       </div>
     </div>
   );

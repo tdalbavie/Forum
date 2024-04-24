@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, updateCartItem }) => {
   // Function to calculate subtotal for an individual item
   const calculateItemSubtotal = (item) => {
     return item.product.price * item.quantity;
@@ -24,15 +24,21 @@ const Cart = ({ cartItems }) => {
     return totalPrice;
   };
 
-  // Function to group items by product ID (not needed anymore)
-
   return (
     <div className="cart">
       <h2>Cart</h2>
       <ul>
         {cartItems.map((item) => (
           <li key={item.product._id}>
-            {item.product.productName} - Quantity: {item.quantity}
+            {item.product.productName} - Quantity:
+            <button onClick={() => updateCartItem(item.product._id, -1)}>
+              -
+            </button>
+            <span>{item.quantity}</span>
+            <button onClick={() => updateCartItem(item.product._id, 1)}>
+              +
+            </button>
+            &nbsp; Subtotal: ${calculateItemSubtotal(item)}
           </li>
         ))}
       </ul>
