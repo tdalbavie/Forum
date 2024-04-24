@@ -1,10 +1,10 @@
-/* Enhanced Styles for CategoriesPage */
-.category-list {
+/* Styles for ThreadsPage */
+.thread-list {
     list-style: none;
     padding: 0;
 }
 
-.category-item {
+.thread-item {
     margin-bottom: 15px;
     padding: 10px;
     background-color: #f8f8f8;
@@ -15,26 +15,12 @@
     align-items: center;
 }
 
-.category-link {
+.thread-link {
     text-decoration: none;
     color: black;
     flex-grow: 1; /* Ensures the link fills all available space except for the button */
-}
-
-.category-title,
-.category-description {
-    display: block;
-    font-family: 'Garamond', serif; /* Garamond for both title and description */
-    text-align: left;
-}
-
-.category-title {
-    font-weight: bold; /* Bold text for title */
-    font-size: 18px;
-}
-
-.category-description {
-    font-style: italic; /* Italic for description */
+    font-family: 'Garamond', serif; /* Garamond for a consistent look */
+    font-size: 18px; /* Adequate size for readability */
 }
 
 .admin-button {
@@ -45,7 +31,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-    margin-left: 10px; /* Maintains space between the link and the button */
+    margin-left: 10px; /* Space between the text and the button */
 }
 
 .admin-button:hover {
