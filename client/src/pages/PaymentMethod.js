@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCart } from "../context/CartContext"; // Import useCart hook
 import Cart from "../components/cart";
 import Navbar from "../components/Navbar";
-
+import './PaymentMethod.css';
 const CheckoutForm = () => {
   const { cartItems, updateCartItem } = useCart(); // Access cartItems and updateCartItem from CartContext
 
@@ -33,72 +33,80 @@ const CheckoutForm = () => {
   return (
     <div>
       <Navbar />
-      <Cart cartItems={cartItems} updateCartItem={updateCartItem} />
-      <form onSubmit={handleSubmit}>
-        <h2>Checkout Form</h2>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Address:</label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Credit Card Number:</label>
-          <input
-            type="text"
-            name="cardNumber"
-            value={formData.cardNumber}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Expiration Date:</label>
-          <input
-            type="text"
-            name="expDate"
-            placeholder="MM/YY"
-            value={formData.expDate}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>CVV:</label>
-          <input
-            type="text"
-            name="cvv"
-            value={formData.cvv}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Complete Checkout</button>
-      </form>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <h2 className="form-heading">Checkout Form</h2>
+          <Cart cartItems={cartItems} updateCartItem={updateCartItem} />
+          <div>
+            <label className="form-label">Name:</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label">Address:</label>
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label">Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label">Credit Card Number:</label>
+            <input
+              type="text"
+              name="cardNumber"
+              value={formData.cardNumber}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label">Expiration Date:</label>
+            <input
+              type="text"
+              name="expDate"
+              placeholder="MM/YY"
+              value={formData.expDate}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label">CVV:</label>
+            <input
+              type="text"
+              name="cvv"
+              value={formData.cvv}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <button type="submit" className="button">Complete Checkout</button>
+        </form>
+      </div>
     </div>
   );
 };
