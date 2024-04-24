@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 //import '../generalCSS.css'; // Link to the CSS file
-//import './CreateArticlePage.css'; // Link to the CSS file
+import './CreateArticlePage.css'; // Link to the CSS file
 
 const CreateArticlePage = () => {
   const [formData, setFormData] = useState({
@@ -38,17 +38,28 @@ const CreateArticlePage = () => {
 
   return (
     <>
-    <Navbar />
-    <div style={{ paddingTop: '60px' }}>
-      <div>
+      <Navbar />
+      <div className="form-container">
         <h1>Create an Article</h1>
         <form onSubmit={handleSubmit}>
-          <input name="title" type="text" placeholder="Title" onChange={handleChange} required />
-          <textarea name="content" placeholder="Content" onChange={handleChange} required />
-          <button type="submit">Submit Article</button>
+          <input 
+            name="title" 
+            type="text" 
+            placeholder="Please Make It Avocado Themed" 
+            onChange={handleChange} 
+            required 
+            className="form-input"
+          />
+          <textarea 
+            name="content" 
+            placeholder="Please Make It Avocado Themed" 
+            onChange={handleChange} 
+            required 
+            className="form-textarea"
+          />
+          <button type="submit" className="submit-button">Submit Article</button>
         </form>
       </div>
-    </div>
     </>
   );
 };
