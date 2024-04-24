@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import './ArticleDetailPage.css';
+
 
 const ArticleDetailPage = () => {
-  const { articleId } = useParams();
+  const { articleId } = useParams(); 
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
@@ -30,11 +32,11 @@ const ArticleDetailPage = () => {
 
   return (
     <>
-      <Navbar />
-      <div style={{ paddingTop: '60px' }}>
-        <h1>{article.title}</h1>
-        <p>{article.content}</p>
-      </div>
+        <Navbar />
+        <div className="article-container" style={{ paddingTop: '60px' }}>
+            <h1 className="article-title">{article.title}</h1>
+            <p className="article-content">{article.content}</p>
+        </div>
     </>
   );
 };

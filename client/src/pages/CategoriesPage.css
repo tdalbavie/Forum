@@ -1,0 +1,46 @@
+/* Enhanced Styles for CategoriesPage */
+.category-list {
+    list-style: none;
+    padding: 0;
+}
+
+.category-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category-link {
+    text-decoration: none;
+    color: black;
+    display: block; /* Makes the link fill the entire list item */
+}
+
+.category-title {
+    font-family: 'Garamond', serif; /* Garamond for titles */
+    font-weight: bold; /* Bold text for title */
+    font-size: 18px;
+    display: block; /* Ensures the title is on a separate line */
+}
+
+.category-description {
+    font-style: italic; /* Italic for description */
+    display: block; /* Ensures the description is on a separate line under the title */
+}
+
+.admin-button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px; /* Adds space between the link and the button */
+}
+
+.admin-button:hover {
+    background-color: #45a049;
+}

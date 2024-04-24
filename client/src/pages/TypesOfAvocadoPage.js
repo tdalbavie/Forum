@@ -20,7 +20,7 @@ const avocadoTypes = [
     { name: "Reed", desc: "Only available in summer, and skin remains green.", img: "reedAvocado.jpeg" },
     { name: "Sharwil", desc: "Rough, green peel, yellow flesh, and very oily.", img: "sharwilAvocado.jpeg" },
     { name: "Zutano", desc: "Lighter, yellow-green skin and mild, more buttery taste.", img: "zutanoAvocado.jpeg" },
-    { name: "Floria", desc: "Big boi.", img: "floridaAvocado.jpeg" }
+    { name: "Florida", desc: "Big boi.", img: "floridaAvocado.jpeg" }
 ];
 
 const TypesOfAvocadoPage = () => {

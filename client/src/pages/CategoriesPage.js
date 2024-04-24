@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useUser } from '../context/UserContext';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import './CategoriesPage.css';
 const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
   const { user } = useUser();
@@ -62,33 +63,30 @@ const CategoriesPage = () => {
 
   return (
     <>
-    <Navbar />
-    <div style={{ paddingTop: '60px' }}>
-      <div>
+      <Navbar />
+      <div className="container">
         <h1>Forum Categories</h1>
-        <ul>
+        <ul className="category-list">
           {categories.map(category => (
-            <li key={category._id}>
-              <Link to={`/Categories/${category._id}/Threads`}>
-                  <strong>{category.title}</strong> - {category.description}
+            <li key={category._id} className="category-item">
+              <Link to={`/Categories/${category._id}/Threads`} className="category-link">
+                <div className="category-title">{category.title}</div>
+                <div className="category-description">{category.description}</div>
               </Link>
               {user && user.role === 'admin' && (
-                <>
-                  <button onClick={() => handleDeleteCategory(category._id)}>
-                    Delete
-                  </button>
-                </>
+                <button onClick={() => handleDeleteCategory(category._id)} className="admin-button">
+                  Delete
+                </button>
               )}
             </li>
           ))}
         </ul>
         {user && user.role === 'admin' && (
-          <button onClick={handleCreateNewCategory}>
+          <button onClick={handleCreateNewCategory} className="admin-button">
             Create New Category
           </button>
         )}
       </div>
-    </div>
     </>
   );
 };

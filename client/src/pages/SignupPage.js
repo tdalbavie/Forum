@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import Navbar from '../components/Navbar';
+import "./generalStyle.css";
 
 function SignupPage() {
     const { setUser } = useUser();
@@ -45,15 +46,15 @@ function SignupPage() {
     return (
         <>
         <Navbar />
-        <div style={{ paddingTop: '60px' }}>
-            <div>
+        <div className="container"> 
+            <div className="form"> 
                 <h2>Signup</h2>
                 <form onSubmit={handleSubmit}>
-                    <input name="firstName" type="text" placeholder="First Name" onChange={handleChange} required />
-                    <input name="lastName" type="text" placeholder="Last Name" onChange={handleChange} required />
-                    <input name="username" type="text" placeholder="Username" onChange={handleChange} required />
-                    <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-                    <button type="submit">Signup</button>
+                    <input className="input" name="firstName" type="text" placeholder="First Name" onChange={handleChange} required />
+                    <input className="input" name="lastName" type="text" placeholder="Last Name" onChange={handleChange} required />
+                    <input className="input" name="username" type="text" placeholder="Username" onChange={handleChange} required />
+                    <input className="input" name="password" type="password" placeholder="Password" onChange={handleChange} required />
+                    <button className="button" type="submit">Signup</button> {/* Use the button class */}
                 </form>
             </div>
         </div>
