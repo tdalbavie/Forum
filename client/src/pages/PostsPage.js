@@ -88,7 +88,6 @@ const PostsPage = () => {
         <h2>Posts</h2>
         {posts.map(post => (
           <div key={post._id} className="post-item">
-            <button className="button delete-button" onClick={() => handleDelete(post._id)}>Delete</button>
             <strong>{post.username}:</strong>
             <div className="post-content">{post.deleted ? "This post has been deleted." : post.content}</div>
             {user && (user.role === 'admin' || user.username === post.username) && !post.deleted && (
@@ -96,6 +95,7 @@ const PostsPage = () => {
                 <button className="button edit-button" onClick={() => handleEdit(post._id)}>Edit</button>
               </div>
             )}
+            <button className="button delete-button" onClick={() => handleDelete(post._id)}>Delete</button>
           </div>
         ))}
         <div>
