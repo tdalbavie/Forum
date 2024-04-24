@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css'; // Make sure this is correctly pointing to your CSS file
 import { useUser } from '../context/UserContext';
 import axios from 'axios';
+import shoppingCartIcon from "../images/shoppingCartIcon.jpg"; // import the image file
 
 function Navbar() {
   const { user } = useUser();
@@ -36,6 +37,15 @@ function Navbar() {
         <span className="hamburger-icon"></span>
       </button>
       <span className="navbar-title">All About Avocados</span>
+      <div className="navbar-right">
+        <Link to="/pay" className="icon-button">
+          <img
+            src={shoppingCartIcon}
+            alt="Shopping Cart"
+            style={{ width: "24px", height: "24px" }} // Adjust width and height as needed
+          />
+        </Link>
+      </div>
       <ul className={isOpen ? 'show-dropdown' : ''}>
         <li><Link to="/" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>Home</Link></li>
         <li><Link to="/Signup" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>Sign Up</Link></li>

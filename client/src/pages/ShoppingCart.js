@@ -1,32 +1,16 @@
-// ShoppingCart.js
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import ProductList from "../components/ProductList";
-import Cart from "../components/cart";
+import { useCart } from "../context/CartContext"; // Import useCart hook
 
 const ShoppingCart = () => {
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCart = (product, quantity) => {
-    const existingItemIndex = cartItems.findIndex(
-      (item) => item.product._id === product._id
-    );
-
-    if (existingItemIndex !== -1) {
-      const updatedCartItems = [...cartItems];
-      updatedCartItems[existingItemIndex].quantity += quantity;
-      setCartItems(updatedCartItems);
-    } else {
-      setCartItems([...cartItems, { product: product, quantity: quantity }]);
-    }
-  };
+  const { cartItems, addToCart } = useCart(); // Access cartItems and addToCart from CartContext
 
   return (
     <div className="shopping-cart">
       <Navbar />
       <div className="container">
         <ProductList addToCart={addToCart} />
-        <Cart cartItems={cartItems} />
       </div>
     </div>
   );

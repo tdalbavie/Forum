@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useCart } from "../context/CartContext"; // Import useCart hook
 import Cart from "../components/cart";
 import Navbar from "../components/Navbar";
 
 const CheckoutForm = () => {
+  const { cartItems, updateCartItem } = useCart(); // Access cartItems and updateCartItem from CartContext
+
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -30,6 +33,7 @@ const CheckoutForm = () => {
   return (
     <div>
       <Navbar />
+      <Cart cartItems={cartItems} updateCartItem={updateCartItem} />
       <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
         <div>
