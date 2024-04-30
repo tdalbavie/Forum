@@ -104,12 +104,12 @@ function Navbar() {
         </li>
         <li>
           <Link to="/checkout" onClick={toggleDropdown}>
-            Checkout
+            Store
           </Link>
         </li>
         <li>
           <Link to="/pay" onClick={toggleDropdown}>
-            Payment Method
+            Checkout
           </Link>
         </li>
         <li>
