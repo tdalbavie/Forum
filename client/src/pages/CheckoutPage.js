@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { useCart } from "../context/CartContext"; // Import useCart hook
 import Cart from "../components/cart";
 import Navbar from "../components/Navbar";
+import "./CheckoutPage.css";
 
 const CheckoutForm = () => {
   const { cartItems, updateCartItem } = useCart(); // Access cartItems and updateCartItem from CartContext
 
   const [formData, setFormData] = useState({
     name: "",
-    address: "",
+    street: "",
+    city: "",
+    state: "",
+    zipCode: "",
     email: "",
     cardNumber: "",
     expDate: "",
@@ -36,6 +40,11 @@ const CheckoutForm = () => {
       <Cart cartItems={cartItems} updateCartItem={updateCartItem} />
       <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
+        <img
+          src="https://th.bing.com/th/id/OIP.GLfU6tGgbDoy4tiVfsOY5gHaBB?rs=1&pid=ImgDetMain"
+          alt="checkout_cards"
+          style={{ width: "500px", height: "50px", marginRight: "10px" }} // Adjust size and margin as needed
+        />
         <div>
           <label>Name:</label>
           <input
@@ -47,11 +56,36 @@ const CheckoutForm = () => {
           />
         </div>
         <div>
-          <label>Address:</label>
+          <label>Address: </label>
+          <label>Street:</label>
           <input
             type="text"
-            name="address"
-            value={formData.address}
+            name="street"
+            value={formData.street}
+            onChange={handleChange}
+            required
+          />
+          <label>City:</label>
+          <input
+            type="text"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+            required
+          />
+          <label>State:</label>
+          <input
+            type="text"
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
+            required
+          />
+          <label>Zip Code:</label>
+          <input
+            type="text"
+            name="zipCode"
+            value={formData.zipCode}
             onChange={handleChange}
             required
           />
