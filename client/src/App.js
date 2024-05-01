@@ -78,7 +78,7 @@ function App() {
               <Route path="/Experience-Check" element={<ExperienceCheck />} />
 
               <Route path="/productForm" element={<ProductForm />} />
-              <Route path="/checkout" element={<ShoppingCart />} />
+              <Route path="/shoppingcart" element={<ShoppingCart />} />
               <Route path="/pay" element={<PaymentMethod />} />
             </Routes>
           </div>

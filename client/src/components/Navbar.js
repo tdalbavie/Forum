@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css'; // Make sure this is correctly pointing to your CSS file
 import { useUser } from '../context/UserContext';
 import axios from 'axios';
-import shoppingCartIcon from "../images/shoppingCartIcon.jpg"; // import the image file
+import shoppingCartIcon from "../images/ShoppingCartIconTransparent.png"; // import the image file
 
 function Navbar() {
   const { user } = useUser();
@@ -58,7 +58,7 @@ function Navbar() {
         <li><Link to="/create-article" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>Create Article</Link></li>
         <li><Link to="/avocado-101" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>Avocado 101</Link></li>
         <li><Link to="/productForm" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>Insert Product</Link></li>
-        <li><Link to="/checkout" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>Checkout</Link></li>
+        <li><Link to="/shoppingcart" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>Shopping Cart</Link></li>
         <li><Link to="/pay" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>Payment Method</Link></li>
         <li><Link to="/about" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>About</Link></li>
         <li><Link to="/contact" onClick={() => { toggleDropdown(); handleExperiencePoints(); }}>Contact</Link></li>
