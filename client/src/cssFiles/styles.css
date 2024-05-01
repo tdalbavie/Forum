@@ -52,3 +52,40 @@
 .product-title {
   font-size: 2em;
 }
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.product-tile {
+  flex: 1 1 30%; /* Each tile will take up around 30% of the container width */
+  margin-bottom: 20px; /* Adds space between the rows */
+}
+
+.product-list-container {
+  margin-top: 100; /* slightly more than the height of the navbar */
+  padding: 20px;
+}
+
+.filter-bar {
+  margin-top: 70px; /* Space between the navbar and the filter bar */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cart {
+  margin-top: 70px;
+}
+
+button {
+  padding: 10px;
+  font-size: 12px;
+  background-color: #a8e674; /* Green background color */
+  border: none;
+  cursor: pointer;
+  color: black; /* Text color */
+}

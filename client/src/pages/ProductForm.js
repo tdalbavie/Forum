@@ -46,7 +46,9 @@ const ProductForm = () => {
         <form onSubmit={handleSubmit}>
           <h2 className="form-heading">Add a New Product</h2>
           <div>
-            <label htmlFor="productName" className="form-label">Product Name:</label>
+            <label htmlFor="productName" className="form-label">
+              Product Name:
+            </label>
             <input
               type="text"
               id="productName"
@@ -57,7 +59,9 @@ const ProductForm = () => {
             />
           </div>
           <div>
-            <label htmlFor="inventory" className="form-label">Inventory:</label>
+            <label htmlFor="inventory" className="form-label">
+              Inventory:
+            </label>
             <input
               type="number"
               id="inventory"
@@ -68,7 +72,9 @@ const ProductForm = () => {
             />
           </div>
           <div>
-            <label htmlFor="price" className="form-label">Price:</label>
+            <label htmlFor="price" className="form-label">
+              Price:
+            </label>
             <input
               type="number"
               id="price"
@@ -79,7 +85,9 @@ const ProductForm = () => {
             />
           </div>
           <div>
-            <label htmlFor="category" className="form-label">Category:</label>
+            <label htmlFor="category" className="form-label">
+              Category:
+            </label>
             <select
               id="category"
               className="form-select"
@@ -92,7 +100,9 @@ const ProductForm = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="imageUrl" className="form-label">Image URL:</label>
+            <label htmlFor="imageUrl" className="form-label">
+              Image URL:
+            </label>
             <input
               type="text"
               id="imageUrl"
@@ -102,7 +112,9 @@ const ProductForm = () => {
               required
             />
           </div>
-          <button type="submit" className="button">Add Product</button>
+          <button type="submit" className="button">
+            Add Product
+          </button>
         </form>
       </div>
     </div>
