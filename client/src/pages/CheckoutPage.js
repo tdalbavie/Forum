@@ -3,9 +3,11 @@ import { useCart } from "../context/CartContext"; // Import useCart hook
 import Cart from "../components/cart";
 import Navbar from "../components/Navbar";
 import "./CheckoutPage.css";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
   const { cartItems, updateCartItem } = useCart(); // Access cartItems and updateCartItem from CartContext
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -30,8 +32,7 @@ const CheckoutForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form data submitted:", formData);
-    // Here you would usually send the data to a server or another process
-    alert("Checkout complete!");
+    navigate("/conformation");
   };
 
   return (

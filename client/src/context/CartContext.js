@@ -20,6 +20,10 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const clearCart = () => {
+    setCartItems([]); // Clears the cart
+  };
+
   const addToCart = (product, quantity) => {
     const existingItemIndex = cartItems.findIndex(
       (item) => item.product._id === product._id
@@ -51,7 +55,13 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, updateCartItem, deleteCartItem, addToCart }}
+      value={{
+        cartItems,
+        updateCartItem,
+        deleteCartItem,
+        addToCart,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>

@@ -30,6 +30,7 @@ import ArticleDetailPage from "./pages/ArticleDetailPage";
 import ExperienceCheck from "./pages/ExperiencePage";
 import { CartProvider } from "./context/CartContext";
 import CheckoutPage from "./pages/CheckoutPage";
+import Confirmation from "./pages/Confirmation";
 
 function App() {
   return (
@@ -80,6 +81,7 @@ function App() {
               <Route path="/productForm" element={<ProductForm />} />
               <Route path="/checkout" element={<ShoppingCart />} />
               <Route path="/pay" element={<CheckoutPage />} />
+              <Route path="/conformation" element={<Confirmation />} />
             </Routes>
           </div>
         </Router>
