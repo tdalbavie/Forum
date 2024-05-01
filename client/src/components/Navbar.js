@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css'; // Make sure this is correctly pointing to your CSS file
 import { useUser } from '../context/UserContext';
 import axios from 'axios';
-import shoppingCartIcon from "../images/shoppingCartIcon.jpg"; // import the image file
+import shoppingCartIcon from "../images/ShoppingCartIconTransparent.png"; // import the image file
 
 function Navbar() {
   const { user } = useUser();
