@@ -4,7 +4,7 @@ import ProductList from "../components/ProductList";
 import { useCart } from "../context/CartContext"; // Import useCart hook
 import "./ShoppingCart.css"; 
 const ShoppingCart = () => {
-  const { cartItems, addToCart } = useCart(); // Access cartItems and addToCart from CartContext
+  const { addToCart } = useCart(); // Access cartItems and addToCart from CartContext
 
   return (
     <div className="shopping-cart">

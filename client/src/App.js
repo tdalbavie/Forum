@@ -25,11 +25,12 @@ import AvocadoFactsPage from "./pages/AvocadoFactsPage";
 import HistoryAvocadoPage from "./pages/HistoryAvocadoPage";
 import ProductForm from "./pages/ProductForm";
 import ShoppingCart from "./pages/ShoppingCart";
-import PaymentMethod from "./pages/PaymentMethod";
 
 import ArticleDetailPage from "./pages/ArticleDetailPage";
 import ExperienceCheck from "./pages/ExperiencePage";
 import { CartProvider } from "./context/CartContext";
+import CheckoutPage from "./pages/CheckoutPage";
+import Confirmation from "./pages/Confirmation";
 
 function App() {
   return (
@@ -78,8 +79,9 @@ function App() {
               <Route path="/Experience-Check" element={<ExperienceCheck />} />
 
               <Route path="/productForm" element={<ProductForm />} />
-              <Route path="/shoppingcart" element={<ShoppingCart />} />
-              <Route path="/pay" element={<PaymentMethod />} />
+              <Route path="/checkout" element={<ShoppingCart />} />
+              <Route path="/pay" element={<CheckoutPage />} />
+              <Route path="/conformation" element={<Confirmation />} />
             </Routes>
           </div>
         </Router>
