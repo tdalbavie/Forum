@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import { useCart } from "../context/CartContext"; // Import useCart hook
 import Cart from "../components/cart";
 import Navbar from "../components/Navbar";
-import './PaymentMethod.css';
+import { useNavigate } from "react-router-dom";
+import "./PaymentMethod.css";
+
 const CheckoutForm = () => {
   const { cartItems, updateCartItem } = useCart(); // Access cartItems and updateCartItem from CartContext
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
-    address: "",
+    address: {
+      street: "",
+      city: "",
+      state: "",
+      zipCode: "",
+    },
     email: "",
     cardNumber: "",
     expDate: "",
@@ -17,26 +25,41 @@ const CheckoutForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    if (name.startsWith("address.")) {
+      const addressField = name.split(".")[1];
+      setFormData((prevState) => ({
+        ...prevState,
+        address: {
+          ...prevState.address,
+          [addressField]: value,
+        },
+      }));
+    } else {
+      setFormData((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form data submitted:", formData);
-    // Here you would usually send the data to a server or another process
-    alert("Checkout complete!");
+    navigate("/confirmation");
   };
 
   return (
     <div>
       <Navbar />
       <div className="form-container">
+        <Cart cartItems={cartItems} updateCartItem={updateCartItem} />
         <form onSubmit={handleSubmit}>
           <h2 className="form-heading">Checkout Form</h2>
-          <Cart cartItems={cartItems} updateCartItem={updateCartItem} />
+          <img
+            src="https://th.bing.com/th/id/OIP.GLfU6tGgbDoy4tiVfsOY5gHaBB?rs=1&pid=ImgDetMain"
+            alt="checkout_cards"
+            style={{ width: "500px", height: "50px", marginRight: "10px" }} // Adjust size and margin as needed
+          />
           <div>
             <label className="form-label">Name:</label>
             <input
@@ -49,11 +72,44 @@ const CheckoutForm = () => {
             />
           </div>
           <div>
-            <label className="form-label">Address:</label>
+            <label className="form-label">Street:</label>
             <input
               type="text"
-              name="address"
-              value={formData.address}
+              name="address.street"
+              value={formData.address.street}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label">City:</label>
+            <input
+              type="text"
+              name="address.city"
+              value={formData.address.city}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label">State:</label>
+            <input
+              type="text"
+              name="address.state"
+              value={formData.address.state}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label">Zip Code:</label>
+            <input
+              type="text"
+              name="address.zipCode"
+              value={formData.address.zipCode}
               onChange={handleChange}
               className="form-input"
               required
@@ -104,7 +160,9 @@ const CheckoutForm = () => {
               required
             />
           </div>
-          <button type="submit" className="button">Complete Checkout</button>
+          <button type="submit" className="button">
+            Complete Checkout
+          </button>
         </form>
       </div>
     </div>
